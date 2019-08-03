@@ -49,24 +49,47 @@ export const SearchWraper = styled.div`
   .iconfont{
     position:absolute;
     right:10px;
-    top:20px;
+    top:15px;
+    padding:5px;
+    
+    &.focused{
+      background:#777;
+      border-radius:10px;
+    }
+  }
+  .slide-enter{
+    transition:all .2s ease-out;
+  }
+  .slide-enter-active{
+    width:200px;
+  }
+  .slide-exit{
+    transition:all .2s ease-out;
+  }
+  .slide-exit-active{
+    width:160px;
   }
 `
 
 export const NavSearch = styled.input.attrs({
-  placeholder:'搜索'
+  placeholder: '搜索'
 })`
   width:160px;
   height:38px;
   margin-top:9px;
   margin-left:20px;
-  padding:0 20px;
+  padding:0 30px 0 20px;
   box-sizing:border-box;
   border:1px solid #ccc;
   outline:none;
   border-radius:19px;
   background:#eee;
   font-size:14px;
+  color:#666;
+  &.focused{
+    width:200px;
+
+  }
 `
 export const Addition = styled.div`
   position:absolute;
