@@ -1,12 +1,15 @@
 import React from 'react';
-
- 
+ import Header from './common/header/index'
 
 function App() {
   return (
-    <div className="dell">
-      12132
-    </div>
+   
+ 
+     <Header></Header>
+     
+   
+   
+    
   );
 }
 
