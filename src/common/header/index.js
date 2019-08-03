@@ -1,18 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { HeaderWraper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWraper } from './style'
 import { CSSTransition } from 'react-transition-group';
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.handleInputFocues = this.handleInputFocues.bind(this);
-    this.handleInputBlur = this.handleInputBlur.bind(this);
-    this.state = {
-      focused: false
-    }
-  }
-  render() {
-    return (
-      <HeaderWraper>
+import {connect} from 'react-redux';
+
+const Header = (props)=>{
+  return (
+    <HeaderWraper>
         <Logo href='/' />
         <Nav>
           <NavItem className='left'>首页</NavItem>
@@ -24,17 +17,17 @@ class Header extends Component {
 
           <SearchWraper>
             <CSSTransition
-              in={this.state.focused}
+              in={props.focused}
               timeout={300}
               classNames="slide"
             >
              <div>
              <NavSearch
-                onFocus={this.handleInputFocues}
-                onBlur={this.handleInputBlur}
-                className={this.state.focused ? 'focused' : ''}
+                onFocus={props.handleInputFocues}
+                onBlur={props.handleInputBlur}
+                className={props.focused ? 'focused' : ''}
               ></NavSearch>
-              <i className={this.state.focused ? 'iconfont icon-fangdajing focused' : 'iconfont icon-fangdajing'} ></i>
+              <i className={props.focused ? 'iconfont icon-fangdajing focused' : 'iconfont icon-fangdajing'} ></i>
              </div>
             </CSSTransition>
 
@@ -49,19 +42,31 @@ class Header extends Component {
           <Button className='reg'>注册</Button>
         </Addition>
       </HeaderWraper>
-    )
-  }
-  handleInputFocues() {
-    this.setState({
-      focused: true
-    })
-  }
-  handleInputBlur() {
-    this.setState({
-      focused: false
-    })
-  }
+  )
 }
 
 
-export default Header;
+const mapStateToProps = (state)=>{
+  return {
+    focused:state.focused
+  }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    handleInputFocues(){
+      const action = {
+        type:'search-focus'
+      }
+      dispatch(action)
+    },
+    handleInputBlur(){
+      const action = {
+        type:'search-blur'
+      }
+      dispatch(action)
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
