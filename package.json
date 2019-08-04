@@ -2,17 +2,7 @@
   "name": "jianshu",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "axios": "^0.18.0",
-    "immutable": "^4.0.0-rc.12",
-    "jsonp": "^0.2.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "react-transition-group": "^4.2.2",
-    "redux-immutable": "^4.0.0",
-    "styled-components": "^4.3.2"
-  },
+  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -34,9 +24,23 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
+  "dependencies": {
+    "axios": "^0.18.0",
+    "immutable": "^4.0.0-rc.12",
+    "jsonp": "^0.2.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "react-transition-group": "^4.2.2",
+    "redux-immutable": "^4.0.0",
+    "styled-components": "^4.3.2",
     "react-redux": "^7.1.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
+
+  },
+  "devDependencies": {
+   
   }
+  
 }
