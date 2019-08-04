@@ -1,19 +1,18 @@
-const defaultStore = {
+import {fromJS} from 'immutable'
+
+const defaultStore = fromJS({
   focused:false,
-}
+})
 
 export default (state = defaultStore , action )=>{
-  let newStatus = JSON.parse(JSON.stringify(state));
-
+ 
   switch(action.type){
-    case 'search-focus':
-        newStatus.focused = true;
-      return newStatus
+    case 'search-focus': 
+        return  state.set('focused',true);
     case 'search-blur':
-        newStatus.focused = false;
-      return newStatus;
+        return  state.set('focused',false);
     default:
-        return newStatus;
+        return state;
   }
 
 } 
