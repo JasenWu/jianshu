@@ -1,7 +1,38 @@
 import React from 'react'
-import { HeaderWraper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWraper } from './style'
+import { HeaderWraper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWraper,SeachInfo,SeachInfoTitle,SearchInfoSwitch,SearchInfoItem ,
+  SearchInfoList
+
+
+} from './style'
 import { CSSTransition } from 'react-transition-group';
 import {connect} from 'react-redux';
+
+const getListArea = (show)=>{
+  if(show){
+    return (
+      <SeachInfo>
+      <SeachInfoTitle>
+        热门搜索
+        <SearchInfoSwitch>
+            换一批
+        </SearchInfoSwitch>
+
+        <SearchInfoList>
+            <SearchInfoItem>教育</SearchInfoItem>
+            <SearchInfoItem>教育</SearchInfoItem>
+            <SearchInfoItem>教育</SearchInfoItem>
+
+        </SearchInfoList>
+       
+      </SeachInfoTitle>
+    </SeachInfo>
+    )
+  }else{
+    return null
+  }
+}
+
+
 
 const Header = (props)=>{
   return (
@@ -30,6 +61,9 @@ const Header = (props)=>{
               <i className={props.focused ? 'iconfont icon-fangdajing focused' : 'iconfont icon-fangdajing'} ></i>
              </div>
             </CSSTransition>
+            {
+              getListArea(props.focused)
+            }
 
           </SearchWraper>
 
