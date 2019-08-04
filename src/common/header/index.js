@@ -9,6 +9,9 @@ import { CSSTransition } from 'react-transition-group';
 import {connect} from 'react-redux';
 import {getList,searchBlurAction,searchFocusAction} from './store/actionCreater'
 
+
+
+
 class Header extends Component{
   constructor(props){
     super(props);
@@ -34,10 +37,7 @@ class Header extends Component{
                 })
 
             }
-              
-             
-              
-  
+ 
           </SearchInfoList>
          
         </SeachInfoTitle>

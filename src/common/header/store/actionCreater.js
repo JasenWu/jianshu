@@ -1,8 +1,10 @@
 
 
-import axios from 'axios';
+
 import {CHANGE_LIST} from './constants'
 import {SEARCH_FOCUS,SEARCH_BLUR} from './constants'
+import {getList as getData} from '../../../api/api'
+
 export const  searchFocusAction = ()=>{
     const action = {
       type:SEARCH_FOCUS
@@ -17,14 +19,16 @@ export const searchBlurAction = ()=>{
    return action;
 }
 
+ 
 export const getList = ()=>{
   return (dispatch)=>{
-     axios.get('http://rd-yapi.qutoutiao.net/mock/832/hr/test').then((res)=>{
-        const action = {
-          type:CHANGE_LIST,
-          value:res.data.data || []
-        }
-       return  dispatch(action);
-      })
+    getData().then(({data})=>{
+      const action = {
+        type:CHANGE_LIST,
+        value:data || []
+      }
+     return  dispatch(action);
+    });
+     
   }
 }
