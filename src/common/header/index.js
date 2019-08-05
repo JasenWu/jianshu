@@ -1,14 +1,13 @@
 import React , {Component} from 'react'
 import { HeaderWraper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWraper,SeachInfo,SeachInfoTitle,SearchInfoSwitch,SearchInfoItem ,
   SearchInfoList
-
-
 } from './style'
 
 import { CSSTransition } from 'react-transition-group';
 import {connect} from 'react-redux';
 import {getList,searchBlurAction,searchFocusAction} from './store/actionCreater'
 
+import { Link } from 'react-router-dom'
 
 
 
@@ -48,12 +47,18 @@ class Header extends Component{
     }
   }
   render(){
+    let { focused ,handleInputFocues ,handleInputBlur,list } = this.props;
     return (
       <HeaderWraper>
         <Logo href='/' />
         <Nav>
-          <NavItem className='left'>首页</NavItem>
-          <NavItem className='left'>下载APP</NavItem>
+          <NavItem className='left'>
+             <Link to="/">首页</Link>
+          
+          </NavItem>
+          <NavItem className='left'>
+              <Link to="/details">详情</Link>
+          </NavItem>
           <NavItem className='right'>登录</NavItem>
           <NavItem className='right'>
             <i className='iconfont icon-Aa'></i>
@@ -61,21 +66,21 @@ class Header extends Component{
 
           <SearchWraper>
             <CSSTransition
-              in={this.props.focused}
+              in={focused}
               timeout={300}
               classNames="slide"
             >
              <div>
              <NavSearch
-                onFocus={this.props.handleInputFocues}
-                onBlur={this.props.handleInputBlur}
-                className={this.props.focused ? 'focused' : ''}
+                onFocus={handleInputFocues}
+                onBlur={handleInputBlur}
+                className={focused ? 'focused' : ''}
               ></NavSearch>
-              <i className={this.props.focused ? 'iconfont icon-fangdajing focused' : 'iconfont icon-fangdajing'} ></i>
+              <i className={focused ? 'iconfont icon-fangdajing focused' : 'iconfont icon-fangdajing'} ></i>
              </div>
             </CSSTransition>
             {
-              this.getListArea(this.props.focused,this.props.list)
+              this.getListArea(focused,list)
             }
 
           </SearchWraper>

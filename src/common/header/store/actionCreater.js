@@ -27,7 +27,7 @@ export const getList = ()=>{
         type:CHANGE_LIST,
         value:data || []
       }
-     return  dispatch(action);
+      return  dispatch(action);
     });
      
   }
