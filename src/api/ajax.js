@@ -6,7 +6,7 @@
 import axios from 'axios'
 import jsonp from 'jsonp'
 import {
-  API_DOMAIN,API_CODE
+  API_DOMAIN
 } from '../config/index'
 
  

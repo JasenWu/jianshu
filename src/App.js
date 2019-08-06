@@ -8,7 +8,7 @@ import React from 'react';
  import Home from './views/home/index'
  import Details from './views/details/index'
 
- import { Button , Alert } from 'antd';
+ 
 
 
 function App() {
