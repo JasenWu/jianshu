@@ -1,6 +1,6 @@
 import React , { Component} from 'react';
 import Header from '../../common/header/index'
-import {HomeWraper,HomeLeft,HomeRight} from './style'
+import {HomeWraper,HomeLeft,HomeRight,Banner} from './style'
 
 import List from './components/List'
 import Recomend from './components/Recomend'
@@ -13,15 +13,16 @@ class Details extends Component{
                 <Header></Header>
                 <HomeWraper>
                    <HomeLeft>
+                        <Banner>
+                            <img className="banner" src="https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/banner.png" />
+                     
+                        </Banner>
                         <Topic></Topic>
                         <List></List>
                    </HomeLeft>
                    <HomeRight>
-                        <Recomend></Recomend>
-                       
-                   </HomeRight>
-
-                         
+                        <Recomend></Recomend> 
+                   </HomeRight>  
                 </HomeWraper> 
             </div>
         )

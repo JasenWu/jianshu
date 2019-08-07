@@ -2,8 +2,6 @@ import React,{Component} from 'react'
 import {TopicWraper,TopicItem} from '../style'
 import {connect} from 'react-redux';
 class Topic extends Component{
-    
-
     render(){
         const  {list} = this.props;
         return (
@@ -13,8 +11,12 @@ class Topic extends Component{
                         list.map((v,k)=>{
                             return (
                                 <TopicItem key={k}>
-                                    <div className='left'>{v}</div>
-                                    <div className='right'>itemtext</div>
+                                    <div className='left'>
+                                        游戏玩家{v}
+                                    </div>
+                                    <div className='right'>
+                                        <img src="https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/image.jpeg" />
+                                    </div>
                                 </TopicItem>
                             )
                         })
@@ -32,11 +34,7 @@ const mapStateToProps = (state)=>{
     }
 }
 
-const mapDispatchToProps = (dispatch)=>{
-    return {
-        
-    }
-}
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Topic);
+
+export default connect(mapStateToProps,null)(Topic);
