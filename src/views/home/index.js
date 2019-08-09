@@ -8,13 +8,12 @@ import Topic from './components/Topic'
 
 class Details extends Component{
     render(){
-        return (
-            <div>
+        return (<div>
                 <Header></Header>
                 <HomeWraper>
                    <HomeLeft>
                         <Banner>
-                            <img className="banner" src="https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/banner.png" />
+                            <img alt="" className="banner" src="https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/banner.png" />
                      
                         </Banner>
                         <Topic></Topic>

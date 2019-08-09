@@ -15,7 +15,7 @@ class Topic extends Component{
                                         游戏玩家{v}
                                     </div>
                                     <div className='right'>
-                                        <img src="https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/image.jpeg" />
+                                        <img alt="" src="https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/image.jpeg" />
                                     </div>
                                 </TopicItem>
                             )

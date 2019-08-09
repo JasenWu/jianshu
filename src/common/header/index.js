@@ -54,7 +54,7 @@ class Header extends Component{
           
           </NavItem>
           <NavItem className='left'>
-              <Link to="/details">详情</Link>
+              <Link to="/details/12">详情</Link>
           </NavItem>
           <NavItem className='right'>登录</NavItem>
           <NavItem className='right'>

@@ -6,10 +6,7 @@ import React from 'react';
 
  import 'antd/dist/antd.css';
  import Home from './views/home/index'
- import Details from './views/details/index'
-
- 
-
+ import Details from './views/details/loadable'
 
 function App() {
   return (
@@ -17,19 +14,13 @@ function App() {
      
       <BrowserRouter>
         <div>
-            <Route path='/' exact   component={Home}>
+            <Route path='/' exact   component={ Home }>
             </Route>
-            <Route path='/details' component={Details} >
+            <Route path='/details/:id' component={ Details } >
             </Route>
         </div>
       </BrowserRouter>
-      
-       {
-        /*
-          <Button  type="primary" >btn</Button>
-       <Alert message="Success Text" type="success" />
-        */
-       }
+       
     </Provider>
 
   );
