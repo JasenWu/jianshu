@@ -7,7 +7,9 @@ import axios from 'axios'
 import jsonp from 'jsonp'
 import {
   API_DOMAIN
-} from '../config/index'
+} from '../../config/index'
+
+import { message, Button } from 'antd';
 
  
 
@@ -156,6 +158,7 @@ export const Post = (oldUrl, data = {}, ajaxData = {}) => {
  * @constructor
  */
 export const Get = (oldUrl, data = {}, ajaxData = {}) => {
+   
   let url = realUrl(oldUrl)
   url = padUrlParams(url)
   return new Promise((resolve, reject) => {
@@ -181,6 +184,7 @@ export const Get = (oldUrl, data = {}, ajaxData = {}) => {
         } else {
           window.badjs && window.badjs.push((message || '服务器错误') + ' ' + (url))
           if (!ajaxData.ignoreTip) {
+            message.info('This is a normal message');
             // Message({
             //   type: 'error',
             //   message: (message || '服务器错误') + ' ' + (url)
