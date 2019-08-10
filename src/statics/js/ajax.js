@@ -6,35 +6,36 @@
 import axios from 'axios'
 import jsonp from 'jsonp'
 import {
-  API_DOMAIN
+  API_DOMAIN,API_CODE
 } from '../../config/index'
 
-import { message, Button } from 'antd';
+import { message as Message } from 'antd';
 
  
 
-// const doTip = (ret, opt = {}) => {
-//   let {
-//     retCode,
-//     retMsg
-//   } = ret
+const doTip = (ret, opt = {}) => {
+  let {
+    retCode,
+    retMsg
+  } = ret
 
-//   if (retCode !== API_CODE.SUCCESS) {
-//     window.badjs && window.badjs.push((retMsg || '发生了一些错误') + ` [${retCode}]`)
-//     if (!opt.ignoreTip) {
+  if (retCode !== API_CODE.SUCCESS) {
+    window.badjs && window.badjs.push((retMsg || '发生了一些错误') + ` [${retCode}]`)
+    if (!opt.ignoreTip) {
       
-//     }
-//   }
-//   if (retCode === API_CODE.USER_NOT_LOGIN) {
-//     // 跳转到登录
-//     if (location.port > 80) {
-//       location.href = '#/login/login'
-//     } else {
+    }
+  }
+  if (retCode === API_CODE.USER_NOT_LOGIN) {
+    let location = window.location;
+    // 跳转到登录
+    if (location.port > 80) {
+      location.href = '#/login/login'
+    } else {
       
        
-//     }
-//   }
-// }
+    }
+  }
+}
 
 /**
  * 获取真实接口地址
@@ -140,10 +141,10 @@ export const Post = (oldUrl, data = {}, ajaxData = {}) => {
       .catch((err) => {
         window.badjs && window.badjs.push((err.message || '服务器错误') + ' ' + url)
         if (!ajaxData.ignoreTip) {
-          // Message({
-          //   type: 'error',
-          //   message: (err.message || '服务器错误') + ' ' + url
-          // })
+          Message({
+            type: 'error',
+            message: (err.message || '服务器错误') + ' ' + url
+          })
         }
         return reject(err)
       })
@@ -179,16 +180,16 @@ export const Get = (oldUrl, data = {}, ajaxData = {}) => {
         
 
         if (status === 200) {
-         // doTip(data, ajaxData)
+          doTip(data, ajaxData)
           return resolve(data)
         } else {
           window.badjs && window.badjs.push((message || '服务器错误') + ' ' + (url))
           if (!ajaxData.ignoreTip) {
             message.info('This is a normal message');
-            // Message({
-            //   type: 'error',
-            //   message: (message || '服务器错误') + ' ' + (url)
-            // })
+            Message({
+              type: 'error',
+              message: (message || '服务器错误') + ' ' + (url)
+            })
           }
           return reject(status)
         }
@@ -196,10 +197,10 @@ export const Get = (oldUrl, data = {}, ajaxData = {}) => {
       .catch((err) => {
         window.badjs && window.badjs.push((err.message || '服务器错误') + ' ' + (url))
         if (!ajaxData.ignoreTip) {
-          // Message({
-          //   type: 'error',
-          //   message: (err.message || '服务器错误') + ' ' + (url)
-          // })
+          Message({
+            type: 'error',
+            message: (err.message || '服务器错误') + ' ' + (url)
+          })
         }
         return reject(err)
       })
