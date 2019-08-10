@@ -1,15 +1,34 @@
 import React, {Component} from 'react';
 import {  Route,Link } from "react-router-dom";
-import { Layout, Menu, Icon } from 'antd';
-
+import { Layout, Menu, Icon,Popover,Button } from 'antd';
+import { Avatar,Title } from './style.js'
+import "./style.css"
 //import { renderRoutes } from "react-router-config";
 
 const { Header, Sider, Content } = Layout;
 
 class CommonLayout extends Component {
-  state = {
-    collapsed: false,
-    height:window.innerHeight
+  constructor(props){
+    super(props);
+    this.logout = this.logout.bind(this);
+    this.state = {
+      collapsed: false,
+      height:window.innerHeight,
+      visible: false,
+    };
+  
+  }
+  
+ 
+
+  hide = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+  handleVisibleChange = visible => {
+    this.setState({ visible });
   };
 
   toggle = () => {
@@ -18,7 +37,20 @@ class CommonLayout extends Component {
     });
   };
 
+  logout(){
+   
+    this.setState({
+      hide: !this.state.hide,
+    },()=>{
+      console.log('logout');
+
+    });
+  }
+
   render() {
+    
+
+    
     const { route } = this.props;
     //console.log('router1111',renderRoutes(route.routes));
 
@@ -55,7 +87,28 @@ class CommonLayout extends Component {
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
+              className="trigger"
+              
             />
+
+            <Title>
+                ZOOM账号管理系统
+            </Title>
+
+            <Avatar>
+
+                <Popover
+                  placement="bottomLeft" 
+                  content={<a onClick={this.logout}>退出登录</a>}
+                  title=""
+                  trigger="click"
+                  visible={this.state.visible}
+                  onVisibleChange={this.handleVisibleChange}
+                > 
+                        <img src='https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/banner.png' />
+                </Popover>
+             
+            </Avatar>
           </Header>
           <Content
             style={{
