@@ -9,7 +9,7 @@ import React from 'react';
  import { defaultRouter } from './router'
  import { renderRoutes } from "react-router-config";
 
-
+console.log('defaultRouter',defaultRouter);
 
 
 function App() {

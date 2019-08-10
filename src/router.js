@@ -9,16 +9,14 @@ console.log('CommonLayout',CommonLayout);
 export const defaultRouter = [
     
     {
-        path: "/",
+        path: "/root",
        
         component: CommonLayout,
-        router:[
+        routes:[
             {
                 path: "/home",
-               
-                component: ()=>{
-                    return <div>home</div>
-                }
+                component: Home,
+                
             },
             {
                 path: "/details/:id",

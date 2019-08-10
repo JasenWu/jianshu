@@ -19,6 +19,7 @@ class CommonLayout extends Component {
 
   render() {
     const { route } = this.props;
+    console.log('router1111',renderRoutes(route.routes));
 
     return (
       <Layout>
@@ -55,9 +56,10 @@ class CommonLayout extends Component {
               minHeight: this.state.height - 115,
             }}
           >
-          
+            123
             {
-                renderRoutes(route.routes)
+               
+             
             }
              
           </Content>
