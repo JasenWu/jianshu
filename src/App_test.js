@@ -25,7 +25,16 @@ function Tacos({ routes }) {
       </ul>
 
       {routes.map((route, i) => (
-        <RouteWithSubRoutes key={i} {...route} />
+         <Route
+         path={route.path}
+         key={i}
+         render={props => (
+             <div>{route.path}</div>
+           // pass the sub-routes down to keep nesting
+           //<route.component {...props} routes={route.routes} />
+         )}
+       />
+        
       ))}
     </div>
   );
@@ -42,10 +51,7 @@ function Cart() {
 ////////////////////////////////////////////////////////////
 // then our route config
 const routes = [
-  {
-    path: "/sandwiches",
-    component: Sandwiches
-  },
+   
   {
     path: "/tacos",
     component: Tacos,
@@ -86,9 +92,7 @@ function RouteConfigExample() {
           <li>
             <Link to="/tacos">Tacos</Link>
           </li>
-          <li>
-            <Link to="/sandwiches">Sandwiches</Link>
-          </li>
+         
         </ul>
 
         <br />
@@ -99,7 +103,15 @@ function RouteConfigExample() {
 
         {routes.map((route, i) => (
           
-          <RouteWithSubRoutes key={i} {...route} />
+          <Route
+            key={i}
+            path={route.path}
+            render={props => (
+            
+              // pass the sub-routes down to keep nesting
+               <route.component {...props} routes={route.routes} />
+            )}
+          />
         ))}
       </div>
     </Router>

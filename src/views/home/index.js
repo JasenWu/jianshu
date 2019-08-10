@@ -1,5 +1,5 @@
 import React , { Component} from 'react';
-import Header from '../../common/header/index'
+//import Header from '../../common/header/index'
 import {HomeWraper,HomeLeft,HomeRight,Banner} from './style'
 
 import List from './components/List'
@@ -9,7 +9,7 @@ import Topic from './components/Topic'
 class Details extends Component{
     render(){
         return (<div>
-                <Header></Header>
+               
                 <HomeWraper>
                    <HomeLeft>
                         <Banner>

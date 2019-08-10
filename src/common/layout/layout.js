@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {  Route } from "react-router-dom";
 import { Layout, Menu, Icon } from 'antd';
 
 import { renderRoutes } from "react-router-config";
@@ -56,12 +57,19 @@ class CommonLayout extends Component {
               minHeight: this.state.height - 115,
             }}
           >
-            123
             {
-               
-             
+                 route.routes.map((route, i) => (
+                    <Route
+                    path={route.path}
+                    key={i}
+                    render={props => (
+                  
+                      // pass the sub-routes down to keep nesting
+                      <route.component {...props} />
+                    )}
+                  />
+                )) 
             }
-             
           </Content>
         </Layout>
       </Layout>
