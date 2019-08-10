@@ -3,6 +3,11 @@ import {  Route,Link } from "react-router-dom";
 import { Layout, Menu, Icon,Popover,Button } from 'antd';
 import { Avatar,Title } from './style.js'
 import "./style.scss"
+
+
+
+ 
+
 //import { renderRoutes } from "react-router-config";
 
 const { Header, Sider, Content } = Layout;

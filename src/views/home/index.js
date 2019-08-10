@@ -1,4 +1,4 @@
-import React , { Component} from 'react';
+import React , { PureComponent} from 'react';
 //import Header from '../../common/header/index'
 import {HomeWraper,HomeLeft,HomeRight,Banner} from './style'
 
@@ -6,7 +6,7 @@ import List from './components/List'
 import Recomend from './components/Recomend'
 import Topic from './components/Topic'
 
-class Details extends Component{
+class Details extends PureComponent{
     render(){
         return (<div>
                

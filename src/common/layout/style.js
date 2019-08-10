@@ -20,6 +20,7 @@ export const  Avatar = styled.div`
 `
 
 export const Title = styled.div`
-  font-size:36px;
+  font-size:30px;
   float:left;
+  color:#000;
 `
