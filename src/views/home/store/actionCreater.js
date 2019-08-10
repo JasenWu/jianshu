@@ -3,7 +3,7 @@
 
 import {CHANGE_ATICLE_LIST} from './constants'
 
-import {getArticleList as getData} from '../../../api/api'
+import {getArticleList as getData} from '../../../models/api'
 
 export const getList = ()=>{
   return (dispatch)=>{

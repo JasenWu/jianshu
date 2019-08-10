@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Home from './views/home/index'
 import Details from './views/details/loadable'
 import List from './views/list/loadable'
-import CommonLayout from './common/layout/layout.js';
+import CommonLayout from './views/common/layout/layout.js';
 
 
 export const defaultRouter = [

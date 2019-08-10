@@ -3,11 +3,7 @@ import {  Route,Link } from "react-router-dom";
 import { Layout, Menu, Icon,Popover,Button } from 'antd';
 import { Avatar,Title } from './style.js'
 import "./style.scss"
-
-
-
  
-
 //import { renderRoutes } from "react-router-config";
 
 const { Header, Sider, Content } = Layout;
@@ -23,9 +19,7 @@ class CommonLayout extends Component {
     };
   
   }
-  
  
-
   hide = () => {
     this.setState({
       visible: false,
@@ -53,9 +47,7 @@ class CommonLayout extends Component {
   }
 
   render() {
-    
-
-    
+ 
     const { route } = this.props;
     //console.log('router1111',renderRoutes(route.routes));
 
@@ -132,7 +124,6 @@ class CommonLayout extends Component {
                       path={route.path}
                       key={i}
                       render={props => (
-                    
                         // pass the sub-routes down to keep nesting
                         <route.component {...props} />
                       )}

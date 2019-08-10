@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import logoPic from '../../statics/logo.png'
+import logoPic from '../../../statics/img/logo.png'
 export const HeaderWraper = styled.div`
   height:58px;
   border-bottom:1px solid #f0f0f0;
@@ -34,7 +34,7 @@ export const NavItem = styled.div`
 
   &.right{
     float:right;
-    color:#9696965;
+    color:#969696;
   }
 
   &.active{

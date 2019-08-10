@@ -3,7 +3,7 @@
 
 import {CHANGE_LIST} from './constants'
 import {SEARCH_FOCUS,SEARCH_BLUR} from './constants'
-import {getList as getData} from '../../../api/api'
+import {getList as getData} from '../../../../models/api'
 
 export const  searchFocusAction = ()=>{
     const action = {
