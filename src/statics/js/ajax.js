@@ -6,12 +6,11 @@
 import axios from 'axios'
 import jsonp from 'jsonp'
 import {
-  API_DOMAIN,API_CODE
+  API_DOMAIN, API_CODE
 } from '../../config/index'
+import { $ui } from './tools'
 
-import { message as Message } from 'antd';
-
- 
+const { Message } = $ui;
 
 const doTip = (ret, opt = {}) => {
   let {
@@ -19,20 +18,13 @@ const doTip = (ret, opt = {}) => {
     retMsg
   } = ret
 
-  if (retCode !== API_CODE.SUCCESS) {
-    window.badjs && window.badjs.push((retMsg || '发生了一些错误') + ` [${retCode}]`)
-    if (!opt.ignoreTip) {
-      
-    }
-  }
+
   if (retCode === API_CODE.USER_NOT_LOGIN) {
     let location = window.location;
     // 跳转到登录
     if (location.port > 80) {
       location.href = '#/login/login'
     } else {
-      
-       
     }
   }
 }
@@ -67,7 +59,7 @@ const padUrlParams = (url = '') => {
     url += '&__client=h5'
   }
 
- 
+
   return url
 }
 
@@ -131,19 +123,16 @@ export const Post = (oldUrl, data = {}, ajaxData = {}) => {
           //doTip(data, ajaxData)
           return resolve(data)
         } else {
-          window.badjs && window.badjs.push((message || '服务器错误') + ' ' + url)
-          if (!ajaxData.ignoreTip) {
-            
-          }
+
           return reject(status)
         }
       })
       .catch((err) => {
-        window.badjs && window.badjs.push((err.message || '服务器错误') + ' ' + url)
+
         if (!ajaxData.ignoreTip) {
           Message({
             type: 'error',
-            message: (err.message || '服务器错误') + ' ' + url
+            content: (err.message || '服务器错误') + ' ' + url
           })
         }
         return reject(err)
@@ -159,7 +148,8 @@ export const Post = (oldUrl, data = {}, ajaxData = {}) => {
  * @constructor
  */
 export const Get = (oldUrl, data = {}, ajaxData = {}) => {
-   
+ 
+
   let url = realUrl(oldUrl)
   url = padUrlParams(url)
   return new Promise((resolve, reject) => {
@@ -177,7 +167,7 @@ export const Get = (oldUrl, data = {}, ajaxData = {}) => {
         status,
         message
       }) => {
-        
+
 
         if (status === 200) {
           doTip(data, ajaxData)
@@ -188,7 +178,7 @@ export const Get = (oldUrl, data = {}, ajaxData = {}) => {
             message.info('This is a normal message');
             Message({
               type: 'error',
-              message: (message || '服务器错误') + ' ' + (url)
+              content: (message || '服务器错误') + ' ' + (url)
             })
           }
           return reject(status)
@@ -199,7 +189,7 @@ export const Get = (oldUrl, data = {}, ajaxData = {}) => {
         if (!ajaxData.ignoreTip) {
           Message({
             type: 'error',
-            message: (err.message || '服务器错误') + ' ' + (url)
+            content: (err.message || '服务器错误') + ' ' + (url)
           })
         }
         return reject(err)
