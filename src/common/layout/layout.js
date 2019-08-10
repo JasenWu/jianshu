@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {  Route } from "react-router-dom";
+import {  Route,Link } from "react-router-dom";
 import { Layout, Menu, Icon } from 'antd';
 
-import { renderRoutes } from "react-router-config";
+//import { renderRoutes } from "react-router-config";
 
 const { Header, Sider, Content } = Layout;
 
@@ -20,20 +20,28 @@ class CommonLayout extends Component {
 
   render() {
     const { route } = this.props;
-    console.log('router1111',renderRoutes(route.routes));
+    //console.log('router1111',renderRoutes(route.routes));
 
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            
             <Menu.Item key="1">
-              <Icon type="user" />
-              <span>发起会议</span>
+             
+              <Link to="/root/home">
+                <Icon type="user" />
+                <span>发起会议</span>
+              </Link>
+              
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>预约会议</span>
+              <Link to="/root/details/12">
+                <Icon type="video-camera" />
+                <span>预约会议</span>
+              </Link>
+             
             </Menu.Item>
             <Menu.Item key="3">
               <Icon type="upload" />
