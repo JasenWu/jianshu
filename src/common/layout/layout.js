@@ -81,8 +81,11 @@ class CommonLayout extends Component {
              
             </Menu.Item>
             <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>在线会议</span>
+              <Link to="/root/list/12">
+                  <Icon type="upload" />
+                  <span>会议列表</span>
+              </Link>
+             
             </Menu.Item>
           </Menu>
         </Sider>
@@ -110,7 +113,7 @@ class CommonLayout extends Component {
                   visible={this.state.visible}
                   onVisibleChange={this.handleVisibleChange}
                 > 
-                        <img src='https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/banner.png' />
+                   <img src='https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/banner.png' />
                 </Popover>
              
             </Avatar>
@@ -126,14 +129,14 @@ class CommonLayout extends Component {
             {
                  route.routes.map((route, i) => (
                     <Route
-                    path={route.path}
-                    key={i}
-                    render={props => (
-                  
-                      // pass the sub-routes down to keep nesting
-                      <route.component {...props} />
-                    )}
-                  />
+                      path={route.path}
+                      key={i}
+                      render={props => (
+                    
+                        // pass the sub-routes down to keep nesting
+                        <route.component {...props} />
+                      )}
+                    />
                 )) 
             }
           </Content>
