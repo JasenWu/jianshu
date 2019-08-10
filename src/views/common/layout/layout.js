@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {  Route,Link } from "react-router-dom";
-import { Layout, Menu, Icon,Popover,Button } from 'antd';
+
+import { Layout, Menu, Icon,Popover } from 'antd';
 import { Avatar,Title } from './style.js'
 import "./style.scss"
  
+
 //import { renderRoutes } from "react-router-config";
 
 const { Header, Sider, Content } = Layout;
@@ -12,12 +14,41 @@ class CommonLayout extends Component {
   constructor(props){
     super(props);
     this.logout = this.logout.bind(this);
+   
+    
+    
+     
+    
+    
     this.state = {
       collapsed: false,
       height:window.innerHeight,
       visible: false,
+      selectKey:'1'
     };
+
+    
   
+  }
+  componentWillMount(){
+    
+    let location = window.location.pathname;
+    
+    let  routes = [
+      "/root/home",
+      "/root/details/:id",
+      "/root/list/:id"
+    ]
+    let selectKey = '1'
+
+    for(let j = 0;j<routes.length;j++){
+      if(routes[j].indexOf(location.slice(0,8)) > -1){
+        selectKey = j+1
+      }
+    }
+
+    this.setState({selectKey:selectKey.toString()});
+
   }
  
   hide = () => {
@@ -55,7 +86,7 @@ class CommonLayout extends Component {
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={[this.state.selectKey]}>
             
             <Menu.Item key="1">
              

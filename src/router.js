@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import Home from './views/home/index'
+import Home from './views/home/loadable'
 import Details from './views/details/loadable'
 import List from './views/list/loadable'
 import CommonLayout from './views/common/layout/layout.js';
