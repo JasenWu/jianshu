@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Home from './views/home/loadable'
+import Login from './views/login/loadable'
 import Details from './views/details/loadable'
 import List from './views/list/loadable'
 import CommonLayout from './views/common/layout/layout.js';
@@ -31,6 +32,11 @@ export const defaultRouter = [
             {
                 path: "/root/list/:id",
                 component: List
+            },
+            {
+                path: "/root/login",
+                component: Login,
+
             }
         ]
     },

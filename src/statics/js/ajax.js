@@ -101,7 +101,7 @@ export const Post = (oldUrl, data = {}, ajaxData = {}) => {
       method: 'post',
       url: (url),
       data: data,
-      withCredentials: true,
+     // withCredentials: true,
       responseType: 'json',
       timeout: 60000,
       transformRequest: [function (data, headers) {
