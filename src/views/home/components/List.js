@@ -7,8 +7,18 @@ import {getList} from '../store/actionCreater'
 class List extends Component{
     render(){
         
- 
-            return <div>1111</div>
+            return (<div>
+                        {
+                            this.props.articlList.map((v,k)=>{
+                                return (<div key={k}>
+
+                                    <p>{v.get('title')}</p>
+                                    <p>{v.get('url')}</p>
+                                </div>)
+                            })
+                        }
+                
+                </div>)
            
          
     }
