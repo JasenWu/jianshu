@@ -4,7 +4,7 @@
 import {CHANGE_ATICLE_LIST} from './constants'
 
 import {getArticleList as getData} from '../../../models/api'
-import { login } from '../../../models/api'
+import { login,getUser } from '../../../models/api'
 
 export const getList = ()=>{
   return (dispatch)=>{
@@ -19,7 +19,7 @@ export const getList = ()=>{
   }
 }
 
-export const loginaction = (params)=>{
+export const loginAction = (params)=>{
   return (dispatch)=>{
     login(params).then((res)=>{
       console.log('登录成功',params);
@@ -29,3 +29,17 @@ export const loginaction = (params)=>{
     })
   }
 }
+
+
+export const getUserAction = (params)=>{
+  return (dispatch)=>{
+    getUser(params).then((res)=>{
+      console.log('登录成功',res);
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }
+}
+
+
+ 

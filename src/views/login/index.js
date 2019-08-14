@@ -2,7 +2,7 @@ import React , { Component} from 'react';
 import { withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
 import Header from '../common/header/index'
-import {loginaction} from './store/actionCreater'
+import {loginAction,getUserAction} from './store/actionCreater'
 import { Form, Icon, Input, Button } from 'antd';
 
 function hasErrors(fieldsError) {
@@ -21,6 +21,7 @@ class Login extends React.Component {
     },(res)=>{
         console.log('set success',username,password)
     })
+    this.props.getUser();
   }
 
   handleSubmit = e => {
@@ -87,13 +88,18 @@ const mapState = (state)=>{
 const mapDispatch = (dispatch)=>{
     return {
         login(values){
-            const action = loginaction({
+            const action = loginAction({
                 username:values.username,
                 password:values.password
             });
             dispatch(action);
            
 
+        },
+        getUser(){
+          const action = getUserAction();
+          dispatch(action);
+          
         }
     }
 }

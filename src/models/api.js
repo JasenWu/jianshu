@@ -12,3 +12,8 @@ export const getArticleList = (params)=>{
 export const login =  (params)=>{
   return Post('login-user',params);
 }
+export const getUser =  (params)=>{
+  return Post('get-user',params);
+}
+
+ 
