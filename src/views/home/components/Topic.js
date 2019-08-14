@@ -12,7 +12,7 @@ class Topic extends Component{
                             return (
                                 <TopicItem key={k}>
                                     <div className='left'>
-                                        游戏玩家{v}
+                                        {v}
                                     </div>
                                     <div className='right'>
                                         <img alt="" src="https://yn-oa.oss-cn-shanghai.aliyuncs.com/test/image.jpeg" />
